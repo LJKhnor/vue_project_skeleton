@@ -7,14 +7,18 @@ import NavBar from './components/NavBar.vue'
   <header>
     <div class="wrapper">
       <NavBar msg="Application Title" />
-      <nav>
+      <nav class="navbar navbar-expand navbar-light fixed-top">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <main class="main-container">
+    <div class="content">
+      <RouterView />
+    </div>
+  </main>
 </template>
 
 <style scoped>
@@ -54,29 +58,15 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  header {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  body {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+    flex-direction: column;
   }
 }
 </style>
